@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<html>
+
+<head>
+<title>Ironhacks</title>
+<style>
+#header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;
+}
+.Conveyance {
+    float: center;
+    margin: 5px;
+    padding: 15px;
+    width: 500px;
+    height: 100px;
+    border: 1px solid black;
+} 
+</style>
+<script type="text/javascript" src="prototype.js"></script>
+<script type="text/javascript" src="calendarview.js"></script>
+<script type="text/javascript">
+      window.onload = function() {
+        Calendar.setup({
+          dateField     : 'date',
+          parentElement : 'calendar'
+        })
+      }
+    </script>
+ 
+</head>
+<body>
+
+<div id="header">
+<h1>Take me to Chicago</h1>
+</div>
+
+<h2>Lafayette, Indiana to Chicago</h2>
+
+<form action="action_page.php">
+  Enter date of travel::
+  <input type="date" name="trav_day">
+  <input type="submit">
+</form>
+
+ <div id="calendar"></div>
+ <div id="date">Select Date</div>
+
+<div class="Conveyance">
+  <h2><a href="http://www.amtrak.com/servlet/ContentServer?pagename=am/am2Station/Station_Page&code=LAF">Amtrak</a></h2>
+  <p>Rail Service</p>
+</div>
+
+<div class="Conveyance">
+  <h2><a href="http://www.zipcar.com/universities/purdue-university">Zipcar</a></h2>
+  <p>Rental Vehicle</p>
+</div>	
+
+<div class="Conveyance">
+  <h2><a href="http://expressaircoach.com/">Express Air Coach</a></h2>
+  <p>Bus service</p>
+</div>
+
+</body>
+</html>
