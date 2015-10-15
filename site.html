@@ -11,47 +11,112 @@
     text-align:center;
     padding:5px;
 }
+.Conveyance_rail {
+    float: center;
+    margin: 5px;
+    padding: 15px;
+    width: 50%;
+    height: 200px;
+    border: 1px solid black;
+} 
 .Conveyance {
     float: center;
     margin: 5px;
     padding: 15px;
-    width: 500px;
+    width: 50%;
     height: 100px;
     border: 1px solid black;
 } 
 </style>
-<script type="text/javascript" src="prototype.js"></script>
-<script type="text/javascript" src="calendarview.js"></script>
-<script type="text/javascript">
-      window.onload = function() {
-        Calendar.setup({
-          dateField     : 'date',
-          parentElement : 'calendar'
-        })
-      }
-    </script>
- 
-</head>
-<body>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+ 
+ <style type="text/css">
+      html, body { height: 100%; margin: 0; padding: 0; }
+      #map { height: 100%; float: center;padding:5px; 
+	  width: 70%;
+	  margin-left: auto;
+      margin-right: auto;}
+ </style>
+	
+ <style type="text/css">
+
+.ds_box {
+	background-color: #FFF;
+	border: 1px solid #000;
+	position: absolute;
+	z-index: 32767;
+}
+
+.ds_tbl {
+	background-color: #FFF;
+}
+
+.ds_head {
+	background-color: #333;
+	color: #FFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	text-align: center;
+	letter-spacing: 2px;
+}
+
+.ds_subhead {
+	background-color: #CCC;
+	color: #000;
+	font-size: 12px;
+	font-weight: bold;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	width: 32px;
+}
+
+.ds_cell {
+	background-color: #EEE;
+	color: #000;
+	font-size: 13px;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	padding: 5px;
+	cursor: pointer;
+}
+
+.ds_cell:hover {
+	background-color: #F3F3F3;
+
+</style>
+</head>
+
+
+
+<body>
+<center>
 <div id="header">
 <h1>Take me to Chicago</h1>
 </div>
 
 <h2>Lafayette, Indiana to Chicago</h2>
 
-<form action="action_page.php">
-  Enter date of travel::
-  <input type="date" name="trav_day">
-  <input type="submit">
+ <table class="ds_box" cellpadding="0" cellspacing="0" id="ds_conclass" style="display: none;">
+<tr><td id="ds_calclass">
+</td></tr>
+</table>
+
+<script src="calender.js"></script>
+
+<form action="" method="post">
+<div>
+Please input a date: <input onclick="ds_sh(this);" name="date" readonly="readonly" style="cursor: text" /><br />
+<input type="submit" value="Submit" />
+</div>
 </form>
 
- <div id="calendar"></div>
- <div id="date">Select Date</div>
-
-<div class="Conveyance">
+<div class="Conveyance_rail">
   <h2><a href="http://www.amtrak.com/servlet/ContentServer?pagename=am/am2Station/Station_Page&code=LAF">Amtrak</a></h2>
   <p>Rail Service</p>
+  <h3><a href="http://www.amtrak.com/servlet/ContentServer?pagename=am/am2Station/Station_Page&code=LAF">Hoosier State</a></h3>
+  <h3><a href="http://www.amtrak.com/cardinal-train">Cardinal</a></h3>
 </div>
 
 <div class="Conveyance">
@@ -63,6 +128,15 @@
   <h2><a href="http://expressaircoach.com/">Express Air Coach</a></h2>
   <p>Bus service</p>
 </div>
+</center>
+
+<div id="map">
+<script src="map.js"></script>
+
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkPDRZCjJrPBJWfvftd3JY1Pvbn84jYTU&callback=initMap">
+    </script>
+</div>	
 
 </body>
 </html>
